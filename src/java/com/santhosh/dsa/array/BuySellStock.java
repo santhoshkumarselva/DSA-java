@@ -1,3 +1,4 @@
+package com.santhosh.dsa.array;
 
 import java.util.Scanner;
 
