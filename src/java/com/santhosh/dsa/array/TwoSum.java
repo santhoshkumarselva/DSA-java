@@ -1,3 +1,5 @@
+package com.santhosh.dsa.array;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
