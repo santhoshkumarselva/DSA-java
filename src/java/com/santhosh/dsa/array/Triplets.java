@@ -1,5 +1,6 @@
 package com.santhosh.dsa.array;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Triplets {
@@ -10,15 +11,19 @@ public class Triplets {
         for(int i=0; i<n; i++) {
             arr[i] = sc.nextInt();
         }
-        System.out.println(solve(arr));
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(solve(arr)));
     }
 
     private static int[] solve(int[] arr) {
-        for(int i=0; i<arr.length-2; i++) {
-            for(int j=1; j< arr.length-1; j++) {
-                for(int k=2; k<arr.length-2; k++) {
-                    if(arr[i] + arr[j] + arr[k] == 0) return new int[]{i, j, k};
-                }
+        int n = arr.length;
+        for(int i=0; i<n; i++) {
+            int l = i+1;
+            int r = n-1;
+            while(l<r) {
+                if(arr[i] + arr[l] + arr[r] == 0) return new int[]{i, l, r};
+                l++;
+                r--;
             }
         }
         return null;
