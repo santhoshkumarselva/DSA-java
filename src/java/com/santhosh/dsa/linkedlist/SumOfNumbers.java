@@ -2,18 +2,18 @@ package com.santhosh.dsa.linkedlist;
 
 public class SumOfNumbers {
     public static void main(String[] args) {
-        ListNode head1 = new ListNode(2);
-        head1.next = new ListNode(3);
-        head1.next.next = new ListNode(1);
-        ListNode head2 = new ListNode(1);
-        head2.next = new ListNode(4);
-        head2.next.next = new ListNode(5);
+        Node head1 = new Node(2);
+        head1.next = new Node(3);
+        head1.next.next = new Node(1);
+        Node head2 = new Node(1);
+        head2.next = new Node(4);
+        head2.next.next = new Node(5);
         addBoth(head1, head2);
     }
 
-    private static void addBoth(ListNode head1, ListNode head2) {
+    private static void addBoth(Node head1, Node head2) {
         int carry = 0, sum = 0;
-        ListNode result = null, currentResult = null;
+        Node result = null, currentResult = null;
         while(head1 != null || head2 !=null || carry !=0) {
             sum = carry;
             if(head1 != null) {
@@ -25,7 +25,7 @@ public class SumOfNumbers {
                 head2 = head2.next;
             }
             carry = sum/10;
-            ListNode newNode = new ListNode(sum%10);
+            Node newNode = new Node(sum%10);
             if(result != null) {
                 currentResult.next = newNode;
                 currentResult = currentResult.next;
@@ -38,7 +38,7 @@ public class SumOfNumbers {
         printSolution(result);
     }
 
-    private static void printSolution(ListNode result) {
+    private static void printSolution(Node result) {
         while(result != null) {
             System.out.println(result.data);
             result = result.next;

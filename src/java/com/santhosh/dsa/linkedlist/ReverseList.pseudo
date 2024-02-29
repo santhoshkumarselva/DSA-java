@@ -1,0 +1,18 @@
+//Recursive approach
+
+function reverseLinkedList(head):
+    // Base case: if the list is empty or has only one node
+    if head is null or head.next is null:
+        return head
+
+    // Recursively reverse the sublist starting from the second node
+    reversedList = reverseLinkedList(head.next)
+
+    // Reverse the links: make the next node of the current head point to the current head
+    head.next.next = head
+
+    // Set the next of current head to null to avoid cycle
+    head.next = null
+
+    // Return the new head of the reversed list
+    return reversedList

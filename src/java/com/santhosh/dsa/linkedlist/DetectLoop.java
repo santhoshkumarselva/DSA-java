@@ -1,20 +1,5 @@
 package com.santhosh.dsa.linkedlist;
 
-class Node {
-    public int data;
-    public Node next;
-
-    public Node() {
-        data = -1;
-        next = null;
-    }
-
-    public Node(int data) {
-        this.data = data;
-        this.next = null;
-    }
-}
-
 public class DetectLoop {
     public static void main(String[] args) {
         Node head = new Node(1);

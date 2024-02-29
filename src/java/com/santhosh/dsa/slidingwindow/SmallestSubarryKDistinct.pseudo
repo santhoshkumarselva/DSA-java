@@ -1,0 +1,27 @@
+function findSmallestKDistinctSubArray(array, k):
+    left = 0
+    right = 0
+    n = size of array
+    distinctCount=0
+    frequencyMap = empty map to store the frequency of elements
+    smallestSize = infinity
+
+    while(right < n):
+        if frequencyMap contains key arr[right]
+            frequencyMap[arr[right]]++
+        else
+            frequencyMap[arr[right]] = 1
+            distinctCount++
+
+        while(k>n):
+            frequencyMap[arr[left]]--
+            if(frequencyMap[arr[left]] ==0)
+                distinctCount--
+            left++
+
+        if(distinctCount == k)
+            smallestSize = min(smallestSize, right - left + 1)
+
+        right++
+
+    return smallestSize
