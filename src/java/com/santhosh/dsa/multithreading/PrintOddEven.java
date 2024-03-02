@@ -1,4 +1,4 @@
-package com.santhosh.dsa.array.multithreading;
+package com.santhosh.dsa.multithreading;
 
 public class PrintOddEven {
     private final int[] arr;
@@ -23,6 +23,7 @@ public class PrintOddEven {
                     for(int i=0; i<arr.length; i++) {
                         if(i%2 != 0) {
                             try {
+                                lock.notify();
                                 lock.wait();
                             } catch (InterruptedException e) {
                                 throw new RuntimeException(e);
@@ -30,7 +31,6 @@ public class PrintOddEven {
                         }
                         else {
                             System.out.println(arr[i]);
-                            lock.notify();
                         }
                     }
                 }
@@ -46,6 +46,7 @@ public class PrintOddEven {
                     for(int i=0; i<arr.length; i++) {
                         if(i%2 == 0) {
                             try {
+                                lock.notify();
                                 lock.wait();
                             } catch (InterruptedException e) {
                                 throw new RuntimeException(e);

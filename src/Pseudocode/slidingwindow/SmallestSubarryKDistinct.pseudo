@@ -23,5 +23,9 @@ function findSmallestKDistinctSubArray(array, k):
             smallestSize = min(smallestSize, right - left + 1)
 
         right++
-
+    while(left < n):
+        frequencyMap[arr[left]]--
+        if(frequencyMap[array[left]] == 0) break;
+        distinctCount--
+        left++
     return smallestSize
