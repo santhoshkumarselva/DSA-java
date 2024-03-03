@@ -1,0 +1,16 @@
+function maxProfit(prices):
+    if length of prices is less than 2:
+        return 0 // cannot make any profit
+
+    min_price = prices[0] // initialize minimum price as the price of the first day
+    max_profit = 0 // initialize maximum profit as 0
+
+    for i from 1 to length of prices:
+        if prices[i] is less than min_price:
+            min_price = prices[i] // update minimum price
+
+        profit = prices[i] - min_price // calculate potential profit if sold on the current day
+        if profit is greater than max_profit:
+            max_profit = profit // update maximum profit if current profit is greater
+
+    return max_profit

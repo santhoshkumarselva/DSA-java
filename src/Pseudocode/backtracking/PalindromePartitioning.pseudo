@@ -1,0 +1,28 @@
+//Generate all Palindromic decompositions of a string
+
+List<List<String>> PalindromicDecompositions(String s):
+    List<List<String>> result
+    List<String> currentDecomposition
+    decomposeString(s, 0, currentDecomposition, result)
+    return result
+
+void decomposeString(String s, int pt, List<String> currentDecomposition, List<List<String>> result):
+    if(pt == s.length())
+        result.add(new ArrayList<>(currentDecomposition))
+    else:
+        for i from pt to s.length() - 1
+            if(isPalindrome(s, pt, i):
+                String palindrome = s.substring(pt, i+1)
+                currentDecomposition.add(palindrome)
+                decomposeString(s, i+1, currentDecomposition, result)
+                currentDecomposition.remove(palindrome)
+
+isPalindrome(String s, int i, int j):
+    if(i>=j) return true
+    if((s.charAt(i) == s.charAt(j)))
+        return isPalindrome(s, i+1, j-1)
+    return false
+
+
+Time complexity:
+Space complexity:

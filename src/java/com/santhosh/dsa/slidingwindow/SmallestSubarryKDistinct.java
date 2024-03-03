@@ -34,11 +34,12 @@ public class SmallestSubarryKDistinct {
         }
         while(left<n) {
             frequency.put(arr[left], frequency.get(arr[left]) - 1);
-            if(frequency.get(arr[left]) != 0) smallestSubArrSize--;
+            if(frequency.get(arr[left]) != 0) {
+                left++;
+                smallestSubArrSize = Integer.min(smallestSubArrSize, right - left);
+            }
             else break;
-            left++;
         }
-
         if(smallestSubArrSize == Integer.MAX_VALUE) return -1;
         else return  smallestSubArrSize;
     }

@@ -1,0 +1,9 @@
+function twoSum( nums, target ):
+    create a hashmap to store the indices of each element
+    for i from 0 to nums.length:
+        int complement = nums[i] - target
+        if complement exists in hashmap:
+            return [hashmap[complement], i]
+        else:
+            store i as the value with nums[i] as the key in hashmap
+    return []

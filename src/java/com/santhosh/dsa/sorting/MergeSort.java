@@ -1,4 +1,4 @@
-package com.santhosh.dsa.array;
+package com.santhosh.dsa.sorting;
 
 import java.util.Scanner;
 

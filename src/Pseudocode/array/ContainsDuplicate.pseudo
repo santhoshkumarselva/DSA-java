@@ -1,0 +1,15 @@
+function containsDuplicate(nums):
+    // Create an empty set to store unique elements
+    uniqueSet = empty set
+
+    // Iterate through the array
+    for num in nums:
+        // If the current element already exists in the set, return true
+        if num is in uniqueSet:
+            return true
+        // Otherwise, add the element to the set
+        else:
+            add num to uniqueSet
+
+    // If the loop completes without finding any duplicates, return false
+    return false

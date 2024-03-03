@@ -1,0 +1,38 @@
+function mergeSort(arr):
+    if length of arr <= 1:
+        return arr
+
+    // Find the middle point of the array
+    middle = length of arr / 2
+
+    // Split the array into two halves
+    leftHalf = mergeSort(first half of arr)
+    rightHalf = mergeSort(second half of arr)
+
+    // Merge the sorted halves
+    return merge(leftHalf, rightHalf)
+
+function merge(left, right):
+    result = empty array
+
+    // While both arrays have elements
+    while left is not empty and right is not empty:
+        // Compare the first elements of the two arrays
+        if first element of left <= first element of right:
+            // Append the smaller element to the result array
+            append first element of left to result
+            // Remove the element from the left array
+            remove first element from left
+        else:
+            // Append the smaller element to the result array
+            append first element of right to result
+            // Remove the element from the right array
+            remove first element from right
+
+    // Add remaining elements from left array to result (if any)
+    append remaining elements of left to result
+
+    // Add remaining elements from right array to result (if any)
+    append remaining elements of right to result
+
+    return result
