@@ -1,0 +1,53 @@
+// Node structure to represent each element in the queue
+class Node:
+    data
+    next
+
+    // Constructor to initialize a node with data
+    function Node(data):
+        this.data = data
+        this.next = null
+
+// Class to represent a queue using a linked list
+class Queue:
+    front
+    rear
+
+    // Constructor to initialize an empty queue
+    function Queue():
+        front = null
+        rear = null
+
+    // Function to check if the queue is empty
+    function isEmpty():
+        return front == null
+
+    // Method to add an item to the rear of the queue
+    function enqueue(item):
+        newNode = Node(item)
+        if isEmpty():
+            front = newNode
+        else:
+            rear.next = newNode
+        rear = newNode
+
+    // Method to remove an item from the front of the queue
+    function dequeue():
+        if isEmpty():
+            return "Queue is empty. Cannot dequeue."
+        else:
+            item = front.data
+            front = front.next
+            if front == null:
+                rear = null
+            return item
+
+    // Method to get the front item of the queue
+    function peek():
+        if isEmpty():
+            return "Queue is empty."
+        else:
+            return front.data
+
+The time complexity of both operations enqueue() and dequeue() is O(1) as it only changes a few pointers in both operations
+Auxiliary Space: O(1), The auxiliary Space of both operations enqueue() and dequeue() is O(1) as constant extra space is required

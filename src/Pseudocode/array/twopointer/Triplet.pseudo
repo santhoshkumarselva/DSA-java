@@ -1,0 +1,27 @@
+function countTriplets(Arr):
+    n = length of Arr
+    sort Arr // Sorting the array is necessary for efficient search
+
+    count = 0
+
+    for i from n-1 to 1:
+        left = 0
+        right = i - 1
+
+        while left < right:
+            if Arr[left] + Arr[right] == Arr[i]:
+                count += 1
+                left += 1
+                right -= 1
+            else if Arr[left] + Arr[right] < Arr[i]:
+                left += 1
+            else:
+                right -= 1
+
+    return count
+
+Given an array Arr consisting of N distinct integers.
+The task is to count all the triplets such that sum of two elements equals the third element.
+
+Time complexity: O(N^2)
+Space complexity: O(1)

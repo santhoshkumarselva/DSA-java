@@ -1,0 +1,25 @@
+function uniquePermutationsWithDuplicates(string S):
+    1. Initialize a list to store unique permutations: uniquePermutations
+    2. Sort the string S lexicographically
+    3. Call a recursive function to generate permutations:
+        generatePermutations(S, "", uniquePermutations)
+    4. Return uniquePermutations
+
+function generatePermutations(string s, string current, list uniquePermutations):
+    1. If the length of s is 0:
+        1.1. Append current to uniquePermutations
+        1.2. Return
+    2. Initialize a boolean array visited of size 256, initialize all elements to false
+    3. Iterate over the characters of s:
+        3.1. If the character at index i is visited:
+            3.1.1. Continue to the next iteration
+        3.2. Mark the character at index i as visited
+        3.3. Call generatePermutations with the string obtained by removing the character at index i from s, current + s[i], and uniquePermutations
+        3.4. Unmark the character at index i as visited
+
+Given a string S.
+The task is to print all unique permutations of the given string that may contain
+dulplicates in lexicographically sorted order.
+
+Time complexity: O(nlogn)
+Space complexity: O(n)

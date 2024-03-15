@@ -1,0 +1,15 @@
+function maxSubArraySum(Arr):
+    maxSum = Arr[0]
+    currentSum = Arr[0]
+
+    for i from 1 to length of Arr - 1:
+        currentSum = max(Arr[i], currentSum + Arr[i])
+        maxSum = max(maxSum, currentSum)
+
+    return maxSum
+
+Given an array Arr[] of N integers.
+Find the contiguous sub-array(containing at least one number) which has the maximum sum and return its sum.
+
+Time complexity: O(N)
+Space complexity: O(1)

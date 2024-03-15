@@ -23,7 +23,7 @@ public class SmallestSubarryKDistinct {
                 frequency.put(arr[right], 1);
                 distinctCount++;
             }
-            while(distinctCount>k) {
+            while(distinctCount>k || (distinctCount == k && frequency.get(arr[left]) != 1)) {
                 frequency.put(arr[left], frequency.get(arr[left])-1);
                 if(frequency.get(arr[left]) == 0) distinctCount--;
                 left++;
@@ -31,14 +31,6 @@ public class SmallestSubarryKDistinct {
             if(distinctCount == k)
                 smallestSubArrSize = Integer.min(smallestSubArrSize, right - left + 1);
             right++;
-        }
-        while(left<n) {
-            frequency.put(arr[left], frequency.get(arr[left]) - 1);
-            if(frequency.get(arr[left]) != 0) {
-                left++;
-                smallestSubArrSize = Integer.min(smallestSubArrSize, right - left);
-            }
-            else break;
         }
         if(smallestSubArrSize == Integer.MAX_VALUE) return -1;
         else return  smallestSubArrSize;

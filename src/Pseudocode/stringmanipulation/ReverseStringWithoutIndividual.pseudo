@@ -1,0 +1,24 @@
+function reverseStringWithoutReversingWords(S):
+    n = length of S
+    start = 0
+    result = ""
+
+    for i from 0 to n-1:
+        if S[i] = '.' or i = n-1:
+            end = i if S[i] != '.' else i - 1
+            word = ""
+            for j from start to end:
+                word = word + S[j]
+            if result = "":
+                result = word
+            else:
+                result = result + '.' + word
+            start = i + 1
+
+    return result
+
+Given a StringS, reverse the string without reversing its individual words.
+Words are separated by dots.
+
+Time complexity: O(N)
+Space complexity: O(1)

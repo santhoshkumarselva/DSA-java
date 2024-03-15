@@ -1,0 +1,26 @@
+function findSubarray(A, N, S):
+    leftIndex = 1
+    rightIndex = 1
+    currentSum = 0
+
+    while rightIndex <= N:
+        currentSum += A[rightIndex]
+
+        while currentSum > S:
+            currentSum -= A[leftIndex]
+            leftIndex += 1
+
+        if currentSum == S:
+            return [leftIndex, rightIndex]
+
+        rightIndex += 1
+
+    return [-1]
+
+
+Given an unsorted array A of size N that contains only non negative integers,
+find a continuous sub-array that adds to a given number S and
+return the left and right index(1-based indexing) of that subarray.
+
+Time complexity: O(N)
+Space complexity: O(1)

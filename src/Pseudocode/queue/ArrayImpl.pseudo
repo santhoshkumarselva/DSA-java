@@ -1,0 +1,63 @@
+// A class to represent a queue
+class Queue:
+    // Initialize variables
+    front = 0
+    rear = capacity - 1
+    size = 0
+    capacity
+    array[capacity]
+
+    // Constructor to initialize the queue with given capacity
+    function Queue(capacity):
+        this.capacity = capacity
+        this.array = new Array[capacity]
+
+    // Function to check if the queue is full
+    function isFull():
+        return size == capacity
+
+    // Function to check if the queue is empty
+    function isEmpty():
+        return size == 0
+
+    // Method to add an item to the queue
+    function enqueue(item):
+        if isFull():
+            return "Queue is full. Cannot enqueue."
+        else:
+            rear = (rear + 1) % capacity
+            array[rear] = item
+            size = size + 1
+            return item + " enqueued to queue"
+
+    // Method to remove an item from the queue
+    function dequeue():
+        if isEmpty():
+            return "Queue is empty. Cannot dequeue."
+        else:
+            item = array[front]
+            front = (front + 1) % capacity
+            size = size - 1
+            return item + " dequeued from queue"
+
+    // Method to get the front item of the queue
+    function front():
+        if isEmpty():
+            return "Queue is empty."
+        else:
+            return array[front]
+
+    // Method to get the rear item of the queue
+    function rear():
+        if isEmpty():
+            return "Queue is empty."
+        else:
+            return array[rear]
+
+
+Enqueue(insertion) 	O(1)
+Deque(deletion)   	O(1)
+Front(Get front)   	O(1)
+Rear(Get Rear)	O(1)
+IsFull(Check queue is full or not)	O(1)
+IsEmpty(Check queue is empty or not)	O(1)
