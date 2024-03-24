@@ -1,0 +1,17 @@
+//Take the integer input in the form of string,
+//convert the string to Integer without using Integer class
+//Increment the Integer value by 1 and return it
+
+function incrementInteger(inputString):
+    result = 0
+    multiplier = 1
+    for i = length(inputString) - 1 to 0:
+        digit = inputString[i] - '0'
+        result = result + (digit * multiplier)
+        multiplier = multiplier * 10
+    result = result + 1
+    return result
+
+
+Time complexity: O(n), n - length of the string
+Space complexity: O(1)

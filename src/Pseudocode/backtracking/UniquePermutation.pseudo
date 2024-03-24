@@ -1,21 +1,31 @@
-function uniquePermutationsWithDuplicates(string S):
-    1. Initialize a list to store unique permutations: uniquePermutations
-    2. Sort the string S lexicographically
-    3. Call a recursive function to generate permutations:
-        generatePermutations(S, "", uniquePermutations)
-    4. Return uniquePermutations
+function List<String> findUniquePermutation(String s):
+    result = new List<String>()
+    charCount = new HashMap<Character, Integer>()
 
-function generatePermutations(string s, string current, list uniquePermutations):
-    1. If the length of s is 0:
-        1.1. Append current to uniquePermutations
-        1.2. Return
-    2. Initialize a boolean array visited of size 256, initialize all elements to false
-    3. Iterate over the characters of s:
-        3.1. If the character at index i is visited:
-            3.1.1. Continue to the next iteration
-        3.2. Mark the character at index i as visited
-        3.3. Call generatePermutations with the string obtained by removing the character at index i from s, current + s[i], and uniquePermutations
-        3.4. Unmark the character at index i as visited
+    // Count the occurrences of each character in the input string
+    for each character c in s:
+        charCount[c] += 1
+
+    // Generate unique permutations recursively
+    generatePermutations(charCount, "", length of s, result)
+
+    return result
+
+function void generatePermutations(Map<Character, Integer> charCount, String current, int remaining, List<String> result):
+    // Base case: If no characters remaining to form permutations, add the current permutation to result
+    if remaining is 0:
+        result.add(current)
+        return
+
+    // Iterate through each character in charCount
+    for each character c in charCount.keySet():
+        count = charCount[c]
+        // If the count of character c is greater than 0, it can be used in the permutation
+        if count > 0:
+            charCount[c] -= 1 // Decrement the count temporarily
+            // Recursively generate permutations with the updated count
+            generatePermutations(charCount, current + c, remaining - 1, result)
+            charCount[c] += 1 // Restore the count after backtracking
 
 Given a string S.
 The task is to print all unique permutations of the given string that may contain
