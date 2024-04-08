@@ -12,6 +12,5 @@ function incrementInteger(inputString):
     result = result + 1
     return result
 
-
 Time complexity: O(n), n - length of the string
 Space complexity: O(1)

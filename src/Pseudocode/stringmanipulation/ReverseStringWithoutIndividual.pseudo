@@ -12,7 +12,7 @@ function reverseStringWithoutReversingWords(S):
             if result = "":
                 result = word
             else:
-                result = result + '.' + word
+                result = word + '.' + result
             start = i + 1
 
     return result

@@ -2,10 +2,10 @@
 class Queue:
     // Initialize variables
     front = 0
-    rear = capacity - 1
+    rear = -1
     size = 0
     capacity
-    array[capacity]
+    array[]
 
     // Constructor to initialize the queue with given capacity
     function Queue(capacity):
