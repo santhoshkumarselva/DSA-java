@@ -1,0 +1,29 @@
+// Define the structure for a binary tree node
+structure TreeNode:
+    value // value stored in the node
+    left // pointer to the left child
+    right // pointer to the right child
+
+// Function to perform level order traversal
+function levelOrderTraversal(root):
+    if root is null:
+        return
+
+    queue = Queue() // Initialize a queue to store nodes
+    queue.enqueue(root) // Enqueue the root node
+
+    while queue is not empty:
+        currentLevelSize = queue.size() // Get the current level size
+
+        // Process all nodes at the current level
+        for i from 0 to currentLevelSize - 1:
+            currentNode = queue.dequeue() // Dequeue the current node
+            print currentNode.value // Print the value of the current node
+
+            // Enqueue the left child if exists
+            if currentNode.left is not null:
+                queue.enqueue(currentNode.left)
+
+            // Enqueue the right child if exists
+            if currentNode.right is not null:
+                queue.enqueue(currentNode.right)

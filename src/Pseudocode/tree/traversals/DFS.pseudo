@@ -1,0 +1,48 @@
+// Define the structure for a binary tree node
+structure TreeNode:
+    value // value stored in the node
+    left // pointer to the left child
+    right // pointer to the right child
+
+// Function to perform inorder traversal
+function inorderTraversal(node):
+    if node is not null:
+        inorderTraversal(node.left)
+        print node.value
+        inorderTraversal(node.right)
+
+// Function to perform preorder traversal
+function preorderTraversal(node):
+    if node is not null:
+        print node.value
+        preorderTraversal(node.left)
+        preorderTraversal(node.right)
+
+// Function to perform postorder traversal
+function postorderTraversal(node):
+    if node is not null:
+        postorderTraversal(node.left)
+        postorderTraversal(node.right)
+        print node.value
+
+// Main function to demonstrate tree traversal
+function main():
+    // Construct a binary tree
+    root = TreeNode(1)
+    root.left = TreeNode(2)
+    root.right = TreeNode(3)
+    root.left.left = TreeNode(4)
+    root.left.right = TreeNode(5)
+
+    // Print the tree structure
+    print("Inorder Traversal:")
+    inorderTraversal(root)
+
+    print("\nPreorder Traversal:")
+    preorderTraversal(root)
+
+    print("\nPostorder Traversal:")
+    postorderTraversal(root)
+
+// Run the main function
+main()

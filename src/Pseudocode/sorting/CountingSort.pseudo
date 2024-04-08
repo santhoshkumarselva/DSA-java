@@ -1,0 +1,25 @@
+function countingSort(array, max)
+    // Initialize an array to store the count of each element
+    countArray[max + 1] = {0}
+
+    // Count the occurrences of each element in the input array
+    for i from 0 to length(array) - 1
+        countArray[array[i]] += 1
+
+    // Modify countArray to contain the actual position of each element in the sorted array
+    for i from 1 to max
+        countArray[i] += countArray[i - 1]
+
+    // Create a temporary array to store the sorted output
+    sortedArray[length(array)] = {0}
+
+    // Place each element at its correct position in the sorted array
+    for i from length(array) - 1 downto 0
+        sortedArray[countArray[array[i]] - 1] = array[i]
+        countArray[array[i]] -= 1
+
+    // Copy the sorted array back to the original array
+    for i from 0 to length(array) - 1
+        array[i] = sortedArray[i]
+
+end function
