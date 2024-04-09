@@ -1,0 +1,39 @@
+function treeDiameter(root):
+    // Base case: if the root is null, the diameter is 0
+    if root is null:
+        return 0
+    else:
+        // Get the height of the left and right subtrees
+        leftHeight = treeHeight(root.left)
+        rightHeight = treeHeight(root.right)
+
+        // Get the diameter of the left and right subtrees recursively
+        leftDiameter = treeDiameter(root.left)
+        rightDiameter = treeDiameter(root.right)
+
+        // Calculate the diameter of the tree considering the three cases
+        // Case 1: Diameter passes through the root
+        diameterThroughRoot = leftHeight + rightHeight + 1
+
+        // Case 2: Diameter lies entirely in the left subtree
+        diameterLeftSubtree = leftDiameter
+
+        // Case 3: Diameter lies entirely in the right subtree
+        diameterRightSubtree = rightDiameter
+
+        // Return the maximum of the three diameters
+        return max(diameterThroughRoot, max(diameterLeftSubtree, diameterRightSubtree))
+
+function treeHeight(node):
+    // Base case: if the node is null, return 0
+    if node is null:
+        return 0
+    else:
+        // Recursively calculate the height of the left and right subtrees
+        leftHeight = treeHeight(node.left)
+        rightHeight = treeHeight(node.right)
+
+        // Return the maximum height of the left and right subtrees, plus 1 for the current node
+        return max(leftHeight, rightHeight) + 1
+
+The diameter/width of a tree is defined as the number of nodes on the longest path between two end nodes.

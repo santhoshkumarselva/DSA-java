@@ -38,7 +38,7 @@ class Queue:
         else:
             item = front.data
             front = front.next
-            if front == null:
+            if front == null:    /*****/
                 rear = null
             return item
 

@@ -1,0 +1,18 @@
+function convertToMirror(root):
+    // Base case: if the root is null, return null
+    if root is null:
+        return null
+    else:
+        // Recursively convert the left and right subtrees into mirror trees
+        leftMirror = convertToMirror(root.left)
+        rightMirror = convertToMirror(root.right)
+
+        // Swap the left and right subtrees of the current node
+        root.left = rightMirror
+        root.right = leftMirror
+
+        // Return the root of the mirror tree
+        return root
+
+Given a binary tree, the task is to convert the binary tree into its Mirror tree.
+Mirror of a Binary Tree T is another Binary Tree M(T) with left and right children of all non-leaf nodes interchanged.

@@ -1,38 +1,44 @@
-function mergeSort(arr):
-    if length of arr <= 1:
-        return arr
+function mergeSort(arr, l, r):
+    if l < r:
+        mid = (l + r) / 2
+        mergeSort(arr, l, mid)
+        mergeSort(arr, mid + 1, r)
+        merge(arr, l, mid, r)
 
-    // Find the middle point of the array
-    middle = length of arr / 2
+function merge(arr, l, mid, r):
+    n1 = mid - l + 1
+    n2 = r - mid
 
-    // Split the array into two halves
-    leftHalf = mergeSort(first half of arr)
-    rightHalf = mergeSort(second half of arr)
+    arr1 = new array of size n1
+    arr2 = new array of size n2
 
-    // Merge the sorted halves
-    return merge(leftHalf, rightHalf)
+    // Copy data to temporary arrays arr1[] and arr2[]
+    for i from 0 to n1 - 1:
+        arr1[i] = arr[l + i]
+    for j from 0 to n2 - 1:
+        arr2[j] = arr[mid + 1 + j]
 
-function merge(left, right):
-    result = empty array
-
-    // While both arrays have elements
-    while left is not empty and right is not empty:
-        // Compare the first elements of the two arrays
-        if first element of left <= first element of right:
-            // Append the smaller element to the result array
-            append first element of left to result
-            // Remove the element from the left array
-            remove first element from left
+    // Merge the temporary arrays back into arr[l..r]
+    i = 0
+    j = 0
+    k = l
+    while i < n1 and j < n2:
+        if arr1[i] <= arr2[j]:
+            arr[k] = arr1[i]
+            i++
         else:
-            // Append the smaller element to the result array
-            append first element of right to result
-            // Remove the element from the right array
-            remove first element from right
+            arr[k] = arr2[j]
+            j++
+        k++
 
-    // Add remaining elements from left array to result (if any)
-    append remaining elements of left to result
+    // Copy the remaining elements of arr1[], if any
+    while i < n1:
+        arr[k] = arr1[i]
+        i++
+        k++
 
-    // Add remaining elements from right array to result (if any)
-    append remaining elements of right to result
-
-    return result
+    // Copy the remaining elements of arr2[], if any
+    while j < n2:
+        arr[k] = arr2[j]
+        j++
+        k++

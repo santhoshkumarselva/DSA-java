@@ -1,0 +1,52 @@
+function connectNodesAtSameLevel(root):
+    // Base case: If the root is null, return
+    if root is null:
+        return
+
+    // Initialize a queue for level order traversal
+    queue = new Queue()
+
+    // Enqueue the root node
+    queue.enqueue(root)
+
+    // Level order traversal
+    while queue is not empty:
+        // Get the current size of the queue (number of nodes at the current level)
+        levelSize = queue.size()
+
+        // Initialize a variable to keep track of the previous node
+        prevNode = null
+
+        // Traverse all nodes at the current level
+        for i from 1 to levelSize:
+            // Dequeue the current node from the queue
+            currentNode = queue.dequeue()
+
+            // If the previous node exists, set its nextRight pointer to the current node
+            if prevNode is not null:
+                prevNode.nextRight = currentNode
+
+            // Update the previous node to the current node
+            prevNode = currentNode
+
+            // Enqueue the left and right child nodes of the current node if they exist
+            if currentNode.left is not null:
+                queue.enqueue(currentNode.left)
+            if currentNode.right is not null:
+                queue.enqueue(currentNode.right)
+
+        // Set the nextRight pointer of the last node in the level to null
+        prevNode.nextRight = null
+
+Problem:
+
+Given a Binary Tree, The task is to connect all the adjacent nodes at the same level
+starting from the left-most node of that level, and ending at the right-most node
+using nextRight pointer by setting these pointers to point the next right for each node.
+
+Idea:
+
+Traverse the tree using Breadth first search traversal and
+maintain a prev pointer initialized with NULL,
+firstly point it to root then every time a new node is traversed
+set prev’s nextRight to current node and move prev to prev’s next.

@@ -1,0 +1,33 @@
+function isSubtree(tree, subtree):
+    // Base case: if the subtree is null, it is always a subtree of any tree
+    if subtree is null:
+        return true
+    // Base case: if the tree is null but the subtree is not, it cannot be a subtree
+    else if tree is null:
+        return false
+    // If the trees match at the current nodes, check if their left and right subtrees are also subtrees
+    else if areIdentical(tree, subtree):
+        return true
+    // Recursively check if the subtree is a subtree of the left or right subtree of the current tree
+    else:
+        return isSubtree(tree.left, subtree) OR isSubtree(tree.right, subtree)
+
+function areIdentical(tree1, tree2):
+    // Base case: if both trees are null, they are identical
+    if tree1 is null and tree2 is null:
+        return true
+    // If one tree is null and the other is not, they are not identical
+    else if tree1 is null or tree2 is null:
+        return false
+    // If the data at the current nodes are different, the trees are not identical
+    else if tree1.data ≠ tree2.data:
+        return false
+    else:
+        // Recursively check if the left and right subtrees are identical
+        leftIdentical = areIdentical(tree1.left, tree2.left)
+        rightIdentical = areIdentical(tree1.right, tree2.right)
+
+        // Return true if both left and right subtrees are identical, otherwise return false
+        return leftIdentical and rightIdentical
+
+Check if a Binary Tree is subtree of another binary tree

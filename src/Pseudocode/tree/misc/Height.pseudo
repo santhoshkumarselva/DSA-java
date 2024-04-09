@@ -1,0 +1,14 @@
+function treeHeight(node):
+    // Base case: if the node is null, return 0
+    if node is null:
+        return 0
+    else:
+        // Recursively calculate the height of the left and right subtrees
+        leftHeight = treeHeight(node.left)
+        rightHeight = treeHeight(node.right)
+
+        // Return the maximum height of the left and right subtrees, plus 1 for the current node
+        return max(leftHeight, rightHeight) + 1
+
+Given a binary tree, the task is to find the height of the tree. The height of the tree is the number of vertices in the tree from the root to the deepest node. 
+Note: The height of an empty tree is 0 and the height of a tree with single node is 1.
