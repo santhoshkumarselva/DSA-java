@@ -1,4 +1,4 @@
-package com.santhosh.dsa.array;
+package com.santhosh.dsa.array.twopointer;
 
 import java.util.Arrays;
 import java.util.Scanner;
