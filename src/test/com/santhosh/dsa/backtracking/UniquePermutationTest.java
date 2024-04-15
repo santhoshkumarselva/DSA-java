@@ -2,6 +2,7 @@ package com.santhosh.dsa.backtracking;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,52 +11,26 @@ class UniquePermutationTest {
 
     @Test
     void checkInput1() {
-        UniquePermutation obj = new UniquePermutation();
-        String input = "ABC";
-        List<String> result = obj.findUniquePermutation(input);
-        List<String> expected = List.of("ABC", "ACB", "BAC", "BCA", "CAB", "CBA");
-        assertEquals(expected.size(), result.size());
-        assertTrue(result.containsAll(expected));
+        assertArrayEquals(Arrays.asList("ABC", "ACB", "BAC", "BCA", "CAB", "CBA").toArray(), UniquePermutation.findUniquePermutation("ABC").toArray());
     }
 
     @Test
-    void chekInput2() {
-        UniquePermutation obj = new UniquePermutation();
-        String input = "AB";
-        List<String> result = obj.findUniquePermutation(input);
-        List<String> expected = List.of("AB", "BA");
-        assertEquals(expected.size(), result.size());
-        assertTrue(result.containsAll(expected));
+    void checkInput2() {
+        assertArrayEquals(Arrays.asList("AB", "BA").toArray(), UniquePermutation.findUniquePermutation("AB").toArray());
     }
 
     @Test
-    void chekInput3() {
-        UniquePermutation obj = new UniquePermutation();
-        String input = "AA";
-        List<String> result = obj.findUniquePermutation(input);
-        List<String> expected = List.of("AA");
-        assertEquals(expected.size(), result.size());
-        assertTrue(result.containsAll(expected));
+    void checkInput3() {
+        assertArrayEquals(List.of("AA").toArray(), UniquePermutation.findUniquePermutation("AA").toArray());
     }
 
     @Test
-    void chekInput4() {
-        UniquePermutation obj = new UniquePermutation();
-        String input = "ABA";
-        List<String> result = obj.findUniquePermutation(input);
-        List<String> expected = List.of("ABA", "AAB", "BAA");
-        assertEquals(expected.size(), result.size());
-        assertTrue(result.containsAll(expected));
+    void checkInput4() {
+        assertArrayEquals(List.of("AAB", "ABA", "BAA").toArray(), UniquePermutation.findUniquePermutation("ABA").toArray());
     }
 
     @Test
-    void chekInput5() {
-        UniquePermutation obj = new UniquePermutation();
-        String input = "ABCA";
-        List<String> result = obj.findUniquePermutation(input);
-        List<String> expected = List.of("AABC", "AACB", "ABAC", "ABCA", "ACBA", "ACAB", "BAAC", "BACA",
-                "BCAA", "CABA", "CAAB", "CBAA");
-        assertEquals(expected.size(), result.size());
-        assertTrue(result.containsAll(expected));
+    void checkInput5() {
+        assertArrayEquals(List.of("AABC", "AACB", "ABAC", "ABCA", "ACAB", "ACBA", "BAAC", "BACA", "BCAA", "CAAB", "CABA", "CBAA").toArray(), UniquePermutation.findUniquePermutation("ABCA").toArray());
     }
 }

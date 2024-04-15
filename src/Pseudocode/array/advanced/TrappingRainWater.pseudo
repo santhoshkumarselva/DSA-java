@@ -1,0 +1,21 @@
+function solve(arr):
+    n = length of arr
+    leftMax = new array of size n
+    rightMax = new array of size n
+    water = 0
+
+    # Calculate leftMax array
+    leftMax[0] = arr[0]
+    for i from 1 to n-1:
+        leftMax[i] = maximum of (arr[i], leftMax[i-1])
+
+    # Calculate rightMax array
+    rightMax[n-1] = arr[n-1]
+    for i from n-2 down to 0:
+        rightMax[i] = maximum of (arr[i], rightMax[i+1])
+
+    # Calculate trapped water
+    for i from 0 to n-1:
+        water += minimum of (rightMax[i], leftMax[i]) - arr[i]
+
+    return water

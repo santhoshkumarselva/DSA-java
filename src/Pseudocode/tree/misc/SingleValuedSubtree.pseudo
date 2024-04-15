@@ -1,0 +1,25 @@
+function countSingleValuedSubtrees(node, count):
+    if node is null:
+        return true
+
+    leftIsSingleValued = countSingleValuedSubtrees(node.left, count)
+    rightIsSingleValued = countSingleValuedSubtrees(node.right, count)
+
+    if leftIsSingleValued and rightIsSingleValued:
+        if (node.left is null or node.left.value == node.value) and
+           (node.right is null or node.right.value == node.value):
+            increment count by 1
+            return true
+
+    return false
+
+function countSingleValuedSubtreesWrapper(root):
+    count = 0
+    countSingleValuedSubtrees(root, count)
+    return count
+
+Given a binary tree, write a program to count the number of Single Valued Subtrees.
+A Single Valued Subtree is one in which all the nodes have same value.
+
+Time complexity: O(n)
+Space complexity: O(n)

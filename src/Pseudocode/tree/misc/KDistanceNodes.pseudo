@@ -1,0 +1,46 @@
+function printNodesAtDistanceK(root, target, k):
+    # First, find the target node in the tree
+    targetNode = findTargetNode(root, target)
+
+    # Now, print all nodes at distance k from the target node
+    printNodesAtDistanceKHelper(root, targetNode, k)
+
+function findTargetNode(root, target):
+    if root is null:
+        return null
+    if root.value == target:
+        return root
+    leftResult = findTargetNode(root.left, target)
+    rightResult = findTargetNode(root.right, target)
+    return leftResult if leftResult is not null else rightResult
+
+function printNodesAtDistanceKHelper(node, targetNode, k):
+    if node is null:
+        return
+    distance = findDistance(node, targetNode)
+    if distance == k:
+        print(node.value)
+    printNodesAtDistanceKHelper(node.left, targetNode, k)
+    printNodesAtDistanceKHelper(node.right, targetNode, k)
+
+function findDistance(node1, node2):
+    # Find the distance between node1 and node2 in the tree
+    if node1 is null or node2 is null:
+        return -1
+    if node1 == node2:
+        return 0
+    leftDistance = findDistance(node1.left, node2)
+    rightDistance = findDistance(node1.right, node2)
+    if leftDistance >= 0:
+        return leftDistance + 1
+    elif rightDistance >= 0:
+        return rightDistance + 1
+    else:
+        return -1
+
+Given a binary tree, a target node in the binary tree, and an integer value k,
+print all the nodes that are at distance k from the given target node.
+No parent pointers are available.
+
+Time complexity: O(n)
+Space complexity: O(h)
