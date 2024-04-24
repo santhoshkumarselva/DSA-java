@@ -1,17 +1,9 @@
-package com.santhosh.dsa.tree;
+package com.santhosh.dsa.tree.traversals;
 
+import com.santhosh.dsa.tree.Node;
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Queue;
-
-class Node {
-    Node left, right;
-    int value;
-
-    public Node(int value) {
-        this.value = value;
-    }
-}
 
 public class BFS {
     static void traverseBFS(Node root) {

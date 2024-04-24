@@ -1,4 +1,6 @@
-package com.santhosh.dsa.tree;
+package com.santhosh.dsa.tree.traversals;
+
+import com.santhosh.dsa.tree.Node;
 
 public class DFS {
     public static void traverseInOrder(Node root) {
