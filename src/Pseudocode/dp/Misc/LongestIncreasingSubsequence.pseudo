@@ -1,0 +1,35 @@
+function longestIncreasingSubsequence(arr[]):
+    // Initialize an array to store the length of the longest increasing subsequence ending at each index
+    let lisLength[0...n-1] be an array of size n initialized with 1
+
+    // Iterate through all elements in the array
+    for i from 1 to n-1:
+        // Compare the current element with all previous elements
+        for j from 0 to i-1:
+            // If the current element is greater than the previous element and the length of LIS ending at the previous element plus 1 is greater than the current length of LIS
+            if arr[i] > arr[j] and lisLength[i] < lisLength[j] + 1:
+                // Update the length of LIS ending at the current element
+                lisLength[i] = lisLength[j] + 1
+
+    // Find the maximum length of LIS
+    maxLisLength = maximum value in lisLength
+
+    // Initialize a variable to store the longest increasing subsequence
+    let longestSubsequence[] be an empty array
+
+    // Iterate through the lisLength array to find the elements of the LIS
+    for i from n-1 to 0:
+        // If the length of LIS ending at the current element is equal to maxLisLength
+        if lisLength[i] == maxLisLength:
+            // Add the current element to the longestSubsequence array
+            append arr[i] to longestSubsequence
+            // Decrement maxLisLength for the next iteration
+            decrement maxLisLength
+
+    // Return the longest increasing subsequence
+    return longestSubsequence
+
+find the longest increasing subsequence in an array of n elements.
+
+Time complexity: O(n2)
+Space complexity: O(n)

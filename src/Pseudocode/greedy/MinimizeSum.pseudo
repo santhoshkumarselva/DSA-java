@@ -1,0 +1,25 @@
+Minimize-Sum(a, c):
+    Sort the array a in non-decreasing order
+    n = length(a)
+    medianIndex = n / 2
+    medianValue = a[medianIndex]
+
+    if c is odd:
+        return medianValue
+
+    leftSum = 0
+    rightSum = 0
+
+    for i from 0 to n - 1:
+        leftSum += |a[i] - a[medianIndex]|
+        rightSum += |a[i] - a[medianIndex + 1]|
+
+    if leftSum <= rightSum:
+        return a[medianIndex]
+    else:
+        return a[medianIndex + 1]
+
+
+we are given n numbers a1,a2,...,an and our
+task is to find a value x that minimizes the sum
+|a1 − x|c +|a2 − x|c +···+|an − x|c.

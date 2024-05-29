@@ -1,0 +1,20 @@
+function generatePermutations(nums):
+    permutations = empty list
+    visited = array of size n, initialized to false
+    currentPermutation = empty list
+    generatePermutationsHelper(nums, visited, currentPermutation, permutations)
+
+function generatePermutationsHelper(nums, visited, currentPermutation, permutations):
+    if length of currentPermutation is equal to length of nums:
+        add currentPermutation to permutations
+        return
+
+    for i from 0 to length of nums - 1:
+        if not visited[i]:
+            mark visited[i] as true
+            add nums[i] to currentPermutation
+            generatePermutationsHelper(nums, visited, currentPermutation, permutations)
+            remove nums[i] from currentPermutation
+            mark visited[i] as false
+
+Generate all permutations of a set of n elements

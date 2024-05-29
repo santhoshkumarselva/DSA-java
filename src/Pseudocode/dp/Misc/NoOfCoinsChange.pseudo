@@ -1,0 +1,23 @@
+function countWays(coins[], x):
+    // Initialize an array to store the number of ways to produce each value from 0 to x
+    let dp[0...x] be an array of size x+1
+    // Base case: There is one way to make sum 0 - using no coins
+    dp[0] = 1
+
+    // Iterate through all values from 1 to x
+    for i from 1 to x:
+        // Initialize the number of ways for the current value to 0
+        dp[i] = 0
+        // Iterate through all coin values
+        for coin in coins:
+            // If the current coin value is less than or equal to the current value being considered
+            if coin <= i:
+                // Add the number of ways to produce the current value using the current coin
+                dp[i] += dp[i - coin]
+
+    // Return the number of ways to produce the sum x
+    return dp[x]
+
+Calculate the total number of ways to produce a sum x using the coins.
+
+solve(x) = solve(x−1)+solve(x−3)+solve(x−4)

@@ -1,0 +1,56 @@
+function solveNQueens(n):
+    solution = empty list to store all solutions
+    board = initialize an empty nxn chessboard
+
+    solveNQueensHelper(0, n, board, solution)
+
+    return solution
+
+function solveNQueensHelper(row, n, board, solution):
+    if row == n:
+        // All queens are placed successfully, add the current configuration to solutions
+        solution.add(constructSolution(board))
+        return
+
+    for col from 0 to n-1:
+        if isSafe(row, col, board, n):
+            // Place a queen at (row, col) if it is safe
+            board[row][col] = 'Q'
+            solveNQueensHelper(row+1, n, board, solution)
+            // Backtrack: Remove the queen at (row, col) and try other positions
+            board[row][col] = '.'
+
+function isSafe(row, col, board, n):
+    // Check if it's safe to place a queen at (row, col)
+    for i from 0 to row-1:
+        if board[i][col] == 'Q':
+            return false
+
+    for i from row to 0 and j from col to 0:
+        if board[i][j] == 'Q':
+            return false
+
+    for i from row to 0 and j from col to n-1:
+        if board[i][j] == 'Q':
+            return false
+
+    return true
+
+function constructSolution(board):
+    // Convert the board configuration to a list of strings
+    solution = empty list
+    for each row in board:
+        solution.add(convert row to string)
+    return solution
+
+function initializeBoard(board):
+    // Initialize the board with all empty cells
+    for i from 0 to n-1:
+        for j from 0 to n-1:
+            board[i][j] = '.'
+
+Calculate the number of ways n queens can be placed on an n× n chessboard
+so that no two queens attack each other.
+
+Time complexity: O(n^n)
+Space complexity: O(n^2 + n!)

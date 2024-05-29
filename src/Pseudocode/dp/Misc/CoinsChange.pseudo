@@ -1,0 +1,32 @@
+function minCoins(coins[], n):
+    // Initialize an array to store the minimum number of coins needed for each value from 0 to n
+    let dp[0...n] be an array of size n+1
+    // Base case: 0 coins needed for 0 value
+    dp[0] = 0
+
+    // Iterate through all values from 1 to n
+    for i from 1 to n:
+        // Initialize minCoins to a value larger than n
+        minCoins = n + 1
+
+        // Iterate through all coin values
+        for coin in coins:
+            // If the current coin value is less than or equal to the current value being considered
+            if coin <= i:
+                // Update minCoins to the minimum of its current value and the minimum number of coins needed for the remaining value
+                minCoins = min(minCoins, dp[i - coin] + 1)
+
+        // Store the minimum number of coins needed for the current value
+        dp[i] = minCoins
+
+    // Return the minimum number of coins needed for the target sum n
+    return dp[n]
+
+
+Given a set of coin values coins = {c1, c2,..., ck} and a target sum of money n, our task is to
+form the sum n using as few coins as possible.
+
+solve(x) = min(solve(x−1)+1,
+solve(x−3)+1,
+solve(x−4)+1)
+

@@ -1,0 +1,15 @@
+procedure permute(array A, integer start, integer end)
+    if start = end then
+        print A
+    else
+        for i from start to end do
+            swap A[start] and A[i]
+            permute(A, start + 1, end)
+            swap A[start] and A[i]  // backtrack to restore the original array
+        end for
+    end if
+end procedure
+
+procedure printAllPermutations(array A)
+    permute(A, 0, length(A) - 1)
+end procedure

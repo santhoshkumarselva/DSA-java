@@ -1,11 +1,11 @@
-package com.santhosh.dsa.tree;
+package com.santhosh.dsa.tree.misc;
 
-import com.santhosh.dsa.tree.misc.IsMirror;
+import com.santhosh.dsa.tree.Node;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class IsMirrorTest {
+class CheckMirrorTest {
     @Test
     void checkSampleInput1() {
         Node root = new Node(1);
@@ -15,7 +15,7 @@ class IsMirrorTest {
         root.left.right = new Node(4);
         root.right.left = new Node(4);
         root.right.right = new Node(3);
-        assertTrue(IsMirror.checkIsMirrorTree(root));
+        assertTrue(CheckMirror.checkIsMirrorTree(root));
     }
     @Test
     void checkSampleInput2() {

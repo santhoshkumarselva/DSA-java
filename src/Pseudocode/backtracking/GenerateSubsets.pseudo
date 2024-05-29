@@ -1,0 +1,23 @@
+function generateSubsets(nums):
+    subSet = empty list
+    generateSubsetsHelper(nums, 0, subSet)
+
+function generateSubsetsHelper(nums, k, subSet):
+    if k is equal to length of nums:
+        printSubset(subSet)
+    else:
+        add nums[k] to subSet
+        generateSubsetsHelper(nums, k+1, subSet) // Include nums[k] in subset
+        remove last element from subSet
+        generateSubsetsHelper(nums, k+1, subSet) // Exclude nums[k] from subset
+
+function printSubset(subSet):
+    print "{"
+    for each element i in subSet:
+        print i, ","
+    print "}"
+
+Generate all subsets of a set of n elements
+
+Space complexity : O(2^n * n)
+Time complexity : O(2^n)

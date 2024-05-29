@@ -1,0 +1,15 @@
+Greedy-Scheduling(activities):
+    Sort activities by their finishing times in non-decreasing order
+    selectedActivities = []
+    endTime = -infinity
+
+    for each activity in activities:
+        if activity.startTime >= endTime:
+            selectedActivities.append(activity)
+            endTime = activity.endTime
+
+    return selectedActivities
+
+
+    Given n events with their starting and ending times, find a
+    schedule that includes as many events as possible.

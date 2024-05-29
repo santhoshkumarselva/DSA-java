@@ -1,5 +1,3 @@
-//Generate all Palindromic decompositions of a string
-
 List<List<String>> PalindromicDecompositions(String s):
     List<List<String>> result
     List<String> currentDecomposition
@@ -22,6 +20,8 @@ isPalindrome(String s, int i, int j):
     if((s.charAt(i) == s.charAt(j)))
         return isPalindrome(s, i+1, j-1)
     return false
+
+Generate all Palindromic decompositions of a string
 
 Time complexity:
 Space complexity:

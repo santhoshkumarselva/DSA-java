@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.Queue;
 
 public class BFS {
-    static void traverseBFS(Node root) {
+    public static void traverseBFS(Node root) {
         if(root == null) {
             return;
         }
@@ -18,10 +18,11 @@ public class BFS {
             for (int i=0; i<n; i++) {
                 node = queue.poll();
                 int val = Objects.requireNonNull(node).value;
-                System.out.println(" "+ val);
+                System.out.print(" "+ val);
                 if(node.left != null) queue.add(node.left);
                 if(node.right != null) queue.add(node.right);
             }
+            System.out.println("\n");
         }
     }
     public static void main(String[] args) {

@@ -2,7 +2,7 @@ package com.santhosh.dsa.tree.misc;
 
 import com.santhosh.dsa.tree.Node;
 
-public class IsMirror {
+public class CheckMirror {
     public static boolean checkIsMirrorTree(Node root) {
         if(root == null) return true;
         return checkIsMirrorTreeHelper(root.left, root.right);

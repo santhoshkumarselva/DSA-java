@@ -1,0 +1,38 @@
+Huffman-Coding(frequencies):
+    # Step 1: Create a priority queue of nodes based on frequencies
+    priorityQueue = PriorityQueue()
+    for each character in frequencies:
+        priorityQueue.push(Node(character, frequencies[character]))
+
+    # Step 2: Build the Huffman tree
+    while priorityQueue.size() > 1:
+        # Extract two nodes with the lowest frequencies
+        node1 = priorityQueue.pop()
+        node2 = priorityQueue.pop()
+
+        # Create a new internal node with the sum of frequencies
+        newNode = Node(null, node1.frequency + node2.frequency)
+        newNode.left = node1
+        newNode.right = node2
+
+        # Insert the new node back into the priority queue
+        priorityQueue.push(newNode)
+
+    # Step 3: Traverse the tree to assign codes to characters
+    root = priorityQueue.pop()
+    assignCodes(root, "")
+
+    return root
+
+assignCodes(node, code):
+    if node is a leaf node:
+        node.code = code
+    else:
+        assignCodes(node.left, code + "0")
+        assignCodes(node.right, code + "1")
+
+
+Huffman coding
+
+Time complexity: O(nlogn)
+Space complexity: O(n)
