@@ -1,0 +1,31 @@
+function longestCommonPrefix(strs):
+    # Step 1: Check for edge cases
+    if strs is empty:
+        return ""
+
+    # Step 2: Initialize the prefix
+    prefix = strs[0]
+
+    # Step 3: Iterate through the array
+    for i from 1 to length(strs) - 1:
+        currentString = strs[i]
+        prefix = findCommonPrefix(prefix, currentString)
+
+        # If the prefix becomes empty, return it immediately
+        if prefix == "":
+            return ""
+
+    # Step 4: Return the prefix
+    return prefix
+
+function findCommonPrefix(str1, str2):
+    minLength = min(length(str1), length(str2))
+    for i from 0 to minLength - 1:
+        if str1[i] != str2[i]:
+            return str1[0 to i]
+    return str1[0 to minLength]
+
+
+
+Write a function to find the longest common prefix string amongst an array of strings.
+If there is no common prefix, return an empty string "".

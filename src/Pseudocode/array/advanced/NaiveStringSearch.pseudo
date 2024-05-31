@@ -1,0 +1,15 @@
+NaiveStringSearch(haystack, needle):
+    n = length of haystack
+    m = length of needle
+
+    for i from 0 to n - m:
+        j = 0
+        while j < m and haystack[i + j] == needle[j]:
+            j = j + 1
+        if j == m:
+            return i
+    return -1
+
+
+Given two strings needle and haystack, return the index of the first occurrence of needle in haystack,
+or -1 if needle is not part of haystack.
