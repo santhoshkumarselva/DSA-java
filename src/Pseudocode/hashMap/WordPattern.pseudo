@@ -1,0 +1,38 @@
+function followsPattern(pattern, s):
+    # Step 1: Split the string s into words
+    words = split(s, " ")
+
+    # Step 2: Check lengths
+    if length(words) != length(pattern):
+        return false
+
+    # Step 3: Initialize mappings
+    mapPatternToWord = new Dictionary()
+    mapWordToPattern = new Dictionary()
+
+    # Step 4: Iterate through the pattern and words
+    for i from 0 to length(pattern) - 1:
+        char = pattern[i]
+        word = words[i]
+
+        # Check mapping from pattern to word
+        if char in mapPatternToWord:
+            if mapPatternToWord[char] != word:
+                return false
+        else:
+            mapPatternToWord[char] = word
+
+        # Check mapping from word to pattern
+        if word in mapWordToPattern:
+            if mapWordToPattern[word] != char:
+                return false
+        else:
+            mapWordToPattern[word] = char
+
+    # Step 5: Return true if all characters matched correctly
+    return true
+
+
+Given a pattern and a string s, find if s follows the same pattern.
+Here follow means a full match, such that
+there is a bijection between a letter in pattern and a non-empty word in s.

@@ -1,0 +1,33 @@
+function isHappy(n):
+    # Step 1: Initialize a set to keep track of seen numbers
+    seen = new Set()
+
+    # Step 2: Define a function to compute the sum of the squares of the digits
+    function sumOfSquares(num):
+        sum = 0
+        while num > 0:
+            digit = num % 10
+            sum += digit * digit
+            num = num // 10
+        return sum
+
+    # Step 3: Iterate while n is not equal to 1
+    while n != 1:
+        # If n is in the set of seen numbers, return false
+        if n in seen:
+            return false
+        # Add n to the set of seen numbers
+        seen.add(n)
+        # Replace n with the sum of the squares of its digits
+        n = sumOfSquares(n)
+
+    # Step 4: Return true if n equals 1
+    return true
+
+Write an algorithm to determine if a number n is happy.
+
+A happy number is a number defined by the following process:
+Starting with any positive integer, replace the number by the sum of the squares of its digits.
+Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
+Those numbers for which this process ends in 1 are happy.
+Return true if n is a happy number, and false if not.

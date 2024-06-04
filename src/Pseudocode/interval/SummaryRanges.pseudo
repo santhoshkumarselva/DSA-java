@@ -1,0 +1,39 @@
+function summaryRanges(nums):
+    # Step 1: Initialize an empty list to store the result ranges
+    result = []
+
+    # Step 2: Initialize the start of the current range
+    if length(nums) == 0:
+        return result
+
+    start = nums[0]
+
+    # Step 3: Iterate through the array
+    for i from 1 to length(nums):
+        # Check if the current number continues the current range
+        if nums[i] != nums[i - 1] + 1:
+            # If it does not continue the current range, add the current range to the result list
+            if start == nums[i - 1]:
+                result.add(toString(start))
+            else:
+                result.add(toString(start) + "->" + toString(nums[i - 1]))
+            # Update the start of the new range to the current number
+            start = nums[i]
+
+    # Step 4: After the loop, add the last range to the result list
+    if start == nums[length(nums) - 1]:
+        result.add(toString(start))
+    else:
+        result.add(toString(start) + "->" + toString(nums[length(nums) - 1]))
+
+    # Step 5: Return the result list
+    return result
+
+You are given a sorted unique integer array nums.
+A range [a,b] is the set of all integers from a to b (inclusive).
+Return the smallest sorted list of ranges that cover all the numbers in the array exactly.
+That is, each element of nums is covered by exactly one of the ranges, and there is no integer x
+such that x is in one of the ranges but not in nums.
+Each range [a,b] in the list should be output as:
+"a->b" if a != b
+"a" if a == b

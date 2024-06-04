@@ -1,0 +1,38 @@
+function isIsomorphic(s, t):
+    # Step 1: Check lengths
+    if length(s) != length(t):
+        return false
+
+    # Step 2: Initialize mappings
+    mapST = new Dictionary()
+    mapTS = new Dictionary()
+
+    # Step 3: Iterate through the strings
+    for i from 0 to length(s) - 1:
+        charS = s[i]
+        charT = t[i]
+
+        # Check mapping from s to t
+        if charS in mapST:
+            if mapST[charS] != charT:
+                return false
+        else:
+            mapST[charS] = charT
+
+        # Check mapping from t to s
+        if charT in mapTS:
+            if mapTS[charT] != charS:
+                return false
+        else:
+            mapTS[charT] = charS
+
+    # Step 4: Return true if all characters matched correctly
+    return true
+
+Given two strings s and t, determine if they are isomorphic.
+
+Two strings s and t are isomorphic if the characters in s can be replaced to get t.
+
+All occurrences of a character must be replaced with another character while
+preserving the order of characters. No two characters may map to the same character,
+but a character may map to itself.
