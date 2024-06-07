@@ -1,0 +1,11 @@
+function hasPathSum(root, targetSum):
+    if root is null:
+        return false
+    if root.left is null and root.right is null:
+        return root.val == targetSum
+    return hasPathSum(root.left, targetSum - root.val) OR hasPathSum(root.right, targetSum - root.val)
+
+Given the root of a binary tree and an integer targetSum,
+return true if the tree has a root-to-leaf path such that
+adding up all the values along the path equals targetSum.
+A leaf is a node with no children.

@@ -1,0 +1,29 @@
+function getMinimumDifference(root):
+    # Initialize variables to keep track of the minimum difference
+    min_diff = Infinity
+    prev_value = None
+
+    # Helper function to perform in-order traversal
+    function inOrderTraversal(node):
+        if node is None:
+            return
+
+        # Traverse the left subtree
+        inOrderTraversal(node.left)
+
+        # Process the current node
+        if prev_value is not None:
+            min_diff = min(min_diff, node.value - prev_value)
+        prev_value = node.value
+
+        # Traverse the right subtree
+        inOrderTraversal(node.right)
+
+    # Perform in-order traversal starting from the root
+    inOrderTraversal(root)
+
+    # Return the minimum difference found
+    return min_diff
+
+Given the root of a Binary Search Tree (BST),
+return the minimum absolute difference between the values of any two different nodes in the tree.
