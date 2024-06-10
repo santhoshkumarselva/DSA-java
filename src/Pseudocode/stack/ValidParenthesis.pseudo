@@ -1,0 +1,25 @@
+function isValid(s):
+    stack = empty stack
+
+    for each character c in s do
+        if c is an opening bracket ('(', '{', '[') then
+            Push c to stack
+        else if stack is empty then
+            return False
+        else
+            top = stack.pop()
+            if top does not match the corresponding opening bracket of c then
+                return False
+
+    return True if stack is empty, False otherwise
+
+INPUT: String s containing brackets
+OUTPUT: True if s is valid, False otherwise
+
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Every close bracket has a corresponding open bracket of the same type.
