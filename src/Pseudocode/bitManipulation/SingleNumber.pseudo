@@ -1,0 +1,15 @@
+function singleNumber(nums):
+    // Initialize result to 0
+    result = 0
+
+    // Iterate through each number in the array nums
+    for each num in nums:
+        // XOR the current number with result
+        result = result XOR num
+
+    // Return the result which will be the single number
+    return result
+
+Given a non-empty array of integers nums, every element appears twice except for one.
+Find that single one.
+You must implement a solution with a linear runtime complexity and use only constant extra space.

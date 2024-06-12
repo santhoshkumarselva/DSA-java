@@ -1,0 +1,18 @@
+function reverseBits(n):
+    result = 0
+    for i from 0 to 31:
+        result = result << 1   // Shift result to the left by 1 bit
+        result = result | (n & 1)  // Add the least significant bit of n to result
+        n = n >> 1   // Shift n to the right by 1 bit
+    return result
+
+
+Reverse bits of a given 32 bits unsigned integer.
+Note:
+Note that in some languages, such as Java, there is no unsigned integer type.
+In this case, both input and output will be given as a signed integer type.
+They should not affect your implementation, as the integer's internal binary representation is the same,
+whether it is signed or unsigned.
+In Java, the compiler represents the signed integers using 2's complement notation.
+Therefore, in Example 2 above, the input represents the signed integer -3 and
+the output represents the signed integer -1073741825.
