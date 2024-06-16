@@ -1,0 +1,20 @@
+function rotate(nums, k):
+    n = length(nums)
+    k = k % n  # Handle cases where k >= n
+
+    reverse(nums, 0, n - 1)  # Reverse the entire array
+    reverse(nums, 0, k - 1)  # Reverse the first k elements
+    reverse(nums, k, n - 1)  # Reverse the remaining n - k elements
+
+function reverse(array, start, end):
+    while start < end:
+        swap(array[start], array[end])
+        start += 1
+        end -= 1
+
+function swap(a, b):
+    temp = a
+    a = b
+    b = temp
+
+Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
