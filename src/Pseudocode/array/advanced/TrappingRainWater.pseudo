@@ -1,6 +1,7 @@
 function solve(arr):
     n = length of arr
-    leftMax = new array of size n
+    leftMax = new array of size n // The leftMax of i includes ith elevation as well so that
+                                  // no elevation holds negative water level
     rightMax = new array of size n
     water = 0
 

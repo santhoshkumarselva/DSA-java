@@ -1,0 +1,35 @@
+Function threeSum(nums):
+    result = empty list of lists
+    Sort nums in ascending order
+
+    For i from 0 to length of nums - 2:
+        If i > 0 and nums[i] == nums[i - 1]:
+            Continue to the next iteration
+
+        left = i + 1
+        right = length of nums - 1
+
+        While left < right:
+            sum = nums[i] + nums[left] + nums[right]
+
+            If sum == 0:
+                Add [nums[i], nums[left], nums[right]] to result
+                left = left + 1
+                right = right - 1
+
+                While left < right and nums[left] == nums[left - 1]:
+                    left = left + 1
+
+                While left < right and nums[right] == nums[right + 1]:
+                    right = right - 1
+
+            Else if sum < 0:
+                left = left + 1
+            Else:
+                right = right - 1
+
+    Return result
+
+Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]]
+such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+Notice that the solution set must not contain duplicate triplets.

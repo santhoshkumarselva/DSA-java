@@ -6,7 +6,7 @@ function findSubarray(A, N, S):
     while rightIndex <= N:
         currentSum += A[rightIndex]
 
-        while currentSum > S:
+        while currentSum > S: /* careful here, I'm often using if instead of while */
             currentSum -= A[leftIndex]
             leftIndex += 1
 

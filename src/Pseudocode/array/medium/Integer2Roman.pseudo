@@ -1,0 +1,21 @@
+function intToRoman(num):
+    // Define the symbols and their corresponding values
+    symbols = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
+    values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+
+    // Initialize the result string
+    result = ""
+
+    // Loop through each symbol and value
+    for i from 0 to length(symbols) - 1:
+        // While num is greater than or equal to the current value
+        while num >= values[i]:
+            // Append the corresponding symbol to the result
+            result = result + symbols[i]
+            // Subtract the value from num
+            num = num - values[i]
+
+    return result
+
+Roman numerals are formed by appendingthe conversions of decimal place values from highest to lowest.
+Given an integer, convert it to a Roman numeral.

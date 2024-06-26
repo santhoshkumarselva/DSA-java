@@ -1,0 +1,22 @@
+function productExceptSelf(nums):
+    n = length(nums)
+    answer = new array of length n initialized to 1
+
+    // Step 1: Calculate prefix products
+    prefix = 1
+    for i from 0 to n - 1:
+        answer[i] = prefix
+        prefix *= nums[i]
+
+    // Step 2: Calculate suffix products and final result
+    suffix = 1
+    for i from n - 1 to 0:
+        answer[i] *= suffix
+        suffix *= nums[i]
+
+    return answer
+
+Given an integer array nums, return an array answer such that answer[i] is equal to
+the product of all the elements of nums except nums[i].
+The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+You must write an algorithm that runs in O(n) time and without using the division operation.

@@ -1,0 +1,42 @@
+function convert(s: string, numRows: int) -> string:
+    // If the number of rows is 1, return the original string
+    if numRows == 1:
+        return s
+
+    // Initialize a list of strings to store the characters in each row
+    rows = list of empty strings of size min(numRows, len(s))
+
+    // Initialize variables to track the current row and direction
+    currentRow = 0
+    goingDown = false
+
+    // Iterate through each character in the input string
+    for char in s:
+        // Append the current character to the current row
+        rows[currentRow] += char
+
+        // Determine if we need to change direction
+        if currentRow == 0 or currentRow == numRows - 1:
+            goingDown = not goingDown
+
+        // Move to the next row based on the current direction
+        if goingDown:
+            currentRow += 1
+        else:
+            currentRow -= 1
+
+    // Concatenate all rows to form the final result
+    result = ""
+    for row in rows:
+        result += row
+
+    return result
+
+The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this:
+(you may want to display this pattern in a fixed font for better legibility)
+P   A   H   N
+A P L S I I G
+Y   I   R
+And then read line by line: "PAHNAPLSIIGYIR"
+Write the code that will take a string and make this conversion given a number of rows:
+string convert(string s, int numRows);
