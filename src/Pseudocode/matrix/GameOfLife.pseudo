@@ -1,0 +1,52 @@
+function getNextState(board):
+    # Get the dimensions of the board
+    m = number of rows in board
+    n = number of columns in board
+
+    # Create a copy of the board to store the next state
+    nextBoard = create a new m x n board initialized to 0
+
+    # Directions array to check all 8 neighbors
+    directions = [
+        (-1, -1), (-1, 0), (-1, 1),
+        (0, -1),         (0, 1),
+        (1, -1), (1, 0), (1, 1)
+    ]
+
+    # Function to count live neighbors
+    function countLiveNeighbors(board, row, col):
+        liveNeighbors = 0
+        for direction in directions:
+            newRow = row + direction[0]
+            newCol = col + direction[1]
+            if newRow >= 0 and newRow < m and newCol >= 0 and newCol < n:
+                liveNeighbors += board[newRow][newCol]
+        return liveNeighbors
+
+    # Iterate through each cell in the board
+    for i from 0 to m-1:
+        for j from 0 to n-1:
+            liveNeighbors = countLiveNeighbors(board, i, j)
+
+            # Apply the rules of the Game of Life
+            if board[i][j] == 1:  # Current cell is live
+                if liveNeighbors < 2 or liveNeighbors > 3:
+                    nextBoard[i][j] = 0  # Cell dies
+                else:
+                    nextBoard[i][j] = 1  # Cell lives
+            else:  # Current cell is dead
+                if liveNeighbors == 3:
+                    nextBoard[i][j] = 1  # Cell becomes live
+                else:
+                    nextBoard[i][j] = 0  # Cell remains dead
+
+    # Return the next state of the board
+    return nextBoard
+
+According to Wikipedia's article: "The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970."
+The board is made up of an m x n grid of cells, where each cell has an initial state: live (represented by a 1) or dead (represented by a 0). Each cell interacts with its eight neighbors (horizontal, vertical, diagonal) using the following four rules (taken from the above Wikipedia article):
+Any live cell with fewer than two live neighbors dies as if caused by under-population.
+Any live cell with two or three live neighbors lives on to the next generation.
+Any live cell with more than three live neighbors dies, as if by over-population.
+Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
+The next state is created by applying the above rules simultaneously to every cell in the current state, where births and deaths occur simultaneously. Given the current state of the m x n grid board, return the next state.

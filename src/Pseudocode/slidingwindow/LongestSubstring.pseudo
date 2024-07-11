@@ -1,0 +1,22 @@
+Function lengthOfLongestSubstring(s):
+    n = length of s
+    maxLength = 0
+    charIndexMap = empty hash map to store characters and their indices
+    left = 0  # Left boundary of the sliding window
+
+    For right from 0 to n-1:
+        If s[right] is in charIndexMap:
+            # Move the left pointer to the right of the duplicate character
+            left = max(left, charIndexMap[s[right]] + 1)
+
+        # Update the latest index of the character
+        charIndexMap[s[right]] = right
+
+        # Update the maximum length of the substring found
+        maxLength = max(maxLength, right - left + 1)
+
+    Return maxLength
+
+
+Given a string s, find the length of the longest
+substring without repeating characters.

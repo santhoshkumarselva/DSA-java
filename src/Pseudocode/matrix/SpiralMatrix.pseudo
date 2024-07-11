@@ -1,0 +1,36 @@
+function spiralOrder(matrix):
+    result = []
+    if matrix is empty:
+        return result
+
+    top = 0
+    bottom = number of rows in matrix - 1
+    left = 0
+    right = number of columns in matrix - 1
+
+    while top <= bottom and left <= right:
+        // Traverse from left to right along the top row
+        for i from left to right:
+            result.append(matrix[top][i])
+        top += 1
+
+        // Traverse from top to bottom along the right column
+        for i from top to bottom:
+            result.append(matrix[i][right])
+        right -= 1
+
+        if top <= bottom:
+            // Traverse from right to left along the bottom row
+            for i from right to left:
+                result.append(matrix[bottom][i])
+            bottom -= 1
+
+        if left <= right:
+            // Traverse from bottom to top along the left column
+            for i from bottom to top:
+                result.append(matrix[i][left])
+            left += 1
+
+    return result
+
+Given an m x n matrix, return all elements of the matrix in spiral order.

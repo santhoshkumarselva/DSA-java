@@ -1,0 +1,28 @@
+function isValidSudoku(board):
+    // Initialize data structures to keep track of seen numbers
+    rows = array of 9 sets
+    columns = array of 9 sets
+    boxes = array of 9 sets
+
+    // Traverse each cell in the board
+    for each row in board:
+        for each column in board:
+            if board[row][column] is not '.':
+                num = board[row][column]
+
+                // Determine the box index (0 to 8)
+                box_index = (row / 3) * 3 + column / 3
+
+                // Check if the number already exists in current row, column, or box
+                if num in rows[row] OR num in columns[column] OR num in boxes[box_index]:
+                    return false
+                else:
+                    // Add the number to the respective sets
+                    add num to rows[row]
+                    add num to columns[column]
+                    add num to boxes[box_index]
+
+    // If all checks pass, the board is valid
+    return true
+
+Determine if a 9 x 9 Sudoku board is valid.
