@@ -1,0 +1,28 @@
+function groupAnagrams(strs):
+    # Step 1: Initialize a dictionary to store grouped anagrams
+    anagramGroups = new Dictionary()
+
+    # Step 2: Iterate through each string in the input array
+    for each str in strs:
+        # Step 3: Sort the characters of the string to create a key
+        sortedStr = sort(str)
+
+        # Step 4: Use the sorted string as the key in the dictionary
+        if sortedStr not in anagramGroups:
+            # Initialize the key with an empty list if it does not exist
+            anagramGroups[sortedStr] = new List()
+
+        # Step 5: Append the original string to the list corresponding to the sorted key
+        anagramGroups[sortedStr].append(str)
+
+    # Step 6: Collect all the values (groups of anagrams) from the dictionary
+    result = new List()
+    for each group in anagramGroups.values():
+        result.append(group)
+
+    # Step 7: Return the list of grouped anagrams
+    return result
+
+Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase,
+typically using all the original letters exactly once.

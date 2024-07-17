@@ -1,0 +1,39 @@
+function insertInterval(intervals, newInterval):
+    // Initialize an empty list to store the result
+    result = []
+
+    // Initialize variables for iteration
+    i = 0
+    n = length of intervals
+
+    // Add all intervals that come before the new interval
+    while i < n and intervals[i].end < newInterval.start:
+        result.add(intervals[i])
+        i += 1
+
+    // Merge overlapping intervals with the new interval
+    while i < n and intervals[i].start <= newInterval.end:
+        newInterval.start = min(newInterval.start, intervals[i].start)
+        newInterval.end = max(newInterval.end, intervals[i].end)
+        i += 1
+
+    // Add the merged new interval
+    result.add(newInterval)
+
+    // Add all intervals that come after the new interval
+    while i < n:
+        result.add(intervals[i])
+        i += 1
+
+    return result
+
+You are given an array of non-overlapping intervals intervals where intervals[i] = [starti, endi]
+represent the start and the end of the ith interval and intervals is sorted in ascending order
+by starti. You are also given an interval newInterval = [start, end] that represents
+the start and end of another interval.
+Insert newInterval into intervals such that intervals is still sorted in ascending order by starti
+and intervals still does not have any overlapping intervals (merge overlapping intervals if necessary).
+
+Return intervals after the insertion.
+
+Note that you don't need to modify intervals in-place. You can make a new array and return it.

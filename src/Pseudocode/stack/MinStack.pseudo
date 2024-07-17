@@ -1,0 +1,36 @@
+class MinStack:
+    // Initialize two stacks: one for the actual elements and one for the minimum elements
+    function MinStack():
+        stack = new empty stack
+        minStack = new empty stack
+
+    // Pushes the element val onto the stack
+    function push(val):
+        push val onto stack
+        if minStack is empty or val <= top of minStack:
+            push val onto minStack
+
+    // Removes the element on the top of the stack
+    function pop():
+        if top of stack == top of minStack:
+            pop from minStack
+        pop from stack
+
+    // Gets the top element of the stack
+    function top():
+        return top of stack
+
+    // Retrieves the minimum element in the stack
+    function getMin():
+        return top of minStack
+
+Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+Implement the MinStack class:
+
+MinStack() initializes the stack object.
+void push(int val) pushes the element val onto the stack.
+void pop() removes the element on the top of the stack.
+int top() gets the top element of the stack.
+int getMin() retrieves the minimum element in the stack.
+You must implement a solution with O(1) time complexity for each function.

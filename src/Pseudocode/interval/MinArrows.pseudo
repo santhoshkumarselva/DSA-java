@@ -1,0 +1,31 @@
+function findMinArrows(points):
+    if points is empty:
+        return 0
+
+    // Sort the points based on the end position of each balloon
+    points.sort by end position
+
+    // Initialize the number of arrows needed
+    arrows = 1
+
+    // Set the position of the first arrow to the end of the first balloon
+    arrow_pos = points[0].end
+
+    // Iterate through the sorted points
+    for i from 1 to length of points - 1:
+        // If the current balloon starts after the position of the last arrow, we need a new arrow
+        if points[i].start > arrow_pos:
+            arrows += 1
+            arrow_pos = points[i].end
+
+    return arrows
+
+There are some spherical balloons taped onto a flat wall that represents the XY-plane.
+The balloons are represented as a 2D integer array points
+where points[i] = [xstart, xend] denotes a balloon whose horizontal diameter stretches
+between xstart and xend. You do not know the exact y-coordinates of the balloons.
+Arrows can be shot up directly vertically (in the positive y-direction) from different points
+along the x-axis. A balloon with xstart and xend is
+burst by an arrow shot at x if xstart <= x <= xend. There is no limit to the number of arrows
+that can be shot. A shot arrow keeps traveling up infinitely, bursting any balloons in its path.
+Given the array points, return the minimum number of arrows that must be shot to burst all balloons.

@@ -1,0 +1,31 @@
+function mergeIntervals(intervals):
+    if intervals is empty:
+        return []
+
+    // Sort intervals by their start time
+    intervals.sort by start time
+
+    // Initialize an empty list to store merged intervals
+    merged = []
+
+    // Add the first interval to the merged list
+    merged.add(intervals[0])
+
+    // Iterate through the rest of the intervals
+    for i from 1 to length of intervals - 1:
+        // Get the last merged interval
+        lastMerged = merged[-1]
+
+        // Check if there is an overlap
+        if intervals[i].start <= lastMerged.end:
+            // Merge the current interval with the last merged interval
+            lastMerged.end = max(lastMerged.end, intervals[i].end)
+        else:
+            // No overlap, add the current interval to the merged list
+            merged.add(intervals[i])
+
+    return merged
+
+Given an array of intervals where intervals[i] = [starti, endi],
+merge all overlapping intervals, and return an array of the non-overlapping intervals
+that cover all the intervals in the input.

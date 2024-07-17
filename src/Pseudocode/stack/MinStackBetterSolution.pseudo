@@ -1,0 +1,56 @@
+// Define the Node class
+class Node:
+    int val
+    int min
+    Node next
+
+    // Node constructor
+    Node(int val, int min, Node next):
+        this.val = val
+        this.min = min
+        this.next = next
+
+// Define the MinStack class
+class MinStack:
+    Node head
+
+    // MinStack constructor
+    MinStack():
+        head = null
+
+    // Push a value onto the stack
+    function push(int x):
+        if head is null:
+            head = new Node(x, x, null)
+        else:
+            head = new Node(x, min(x, head.min), head)
+
+    // Pop the top value from the stack
+    function pop():
+        if head is not null:
+            head = head.next
+
+    // Get the top value of the stack
+    function top() -> int:
+        if head is not null:
+            return head.val
+        else:
+            throw Exception("Stack is empty")
+
+    // Retrieve the minimum value in the stack
+    function getMin() -> int:
+        if head is not null:
+            return head.min
+        else:
+            throw Exception("Stack is empty")
+
+Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+Implement the MinStack class:
+
+MinStack() initializes the stack object.
+void push(int val) pushes the element val onto the stack.
+void pop() removes the element on the top of the stack.
+int top() gets the top element of the stack.
+int getMin() retrieves the minimum element in the stack.
+You must implement a solution with O(1) time complexity for each function.
